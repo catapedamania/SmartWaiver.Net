@@ -2,8 +2,6 @@
 using RestSharp.Serializers.NewtonsoftJson;
 using SmartWaiver.Net.Interfaces;
 using SmartWaiver.Net.Clients;
-using SmartWaiver.Net.Objects;
-using System.Net.Http.Headers;
 
 namespace SmartWaiver.Net
 {
