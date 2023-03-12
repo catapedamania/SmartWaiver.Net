@@ -2,6 +2,8 @@
 using RestSharp.Serializers.NewtonsoftJson;
 using SmartWaiver.Net.Interfaces;
 using SmartWaiver.Net.Clients;
+using SmartWaiver.Net.Objects;
+using System.Net.Http.Headers;
 
 namespace SmartWaiver.Net
 {
@@ -12,6 +14,7 @@ namespace SmartWaiver.Net
         private readonly string _waiverBase = "https://waiver.smartwaiver.com/";
 
         public IWaiverClient Waiver {get;}
+        public ITemplateClient Template { get; }
         
         public SmartWaiver(string apiKey)
         {
@@ -20,6 +23,7 @@ namespace SmartWaiver.Net
             client.AddDefaultHeader("sw-api-key", _apiKey);
             client.UseNewtonsoftJson();
             Waiver = new WaiverClient(client, _waiverBase);
+            Template = new TemplateClient(client);
         }
     }
 }
