@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using SmartWaiver.Net.Exceptions;
 using SmartWaiver.Net.Interfaces;
 using SmartWaiver.Net.Objects;
@@ -43,6 +44,34 @@ namespace SmartWaiver.Net.Clients
             }
 
             var ex = new FailedToFetchFromAPIException($"Failed to fetch template {templateId}",response.ErrorException);
+            ex.Data.Add("Template Id", templateId);
+            ex.AddWebTrace(response.Content);
+            throw ex;
+        }
+
+        public PrefillResponse Prefill(string templateId, PrefillRequest prefill)
+        {
+            var request = new RestRequest("v4/templates/{templateId}/prefill");
+            request.AddUrlSegment("templateId", templateId);
+            request.AddJsonBody(
+                JsonConvert.SerializeObject
+                (
+                    prefill,
+                    new JsonSerializerSettings
+                    {
+                        NullValueHandling = NullValueHandling.Ignore,
+                        DateFormatString = "yyyy-MM-dd"
+                    }
+                ));
+
+            var response = _client.ExecutePostAsync<PrefillResponse>(request).Result;
+
+            if (response.IsSuccessful)
+            {
+                return response.Data;
+            }
+
+            var ex = new FailedToFetchFromAPIException($"Failed to prefill template {templateId}", response.ErrorException);
             ex.Data.Add("Template Id", templateId);
             ex.AddWebTrace(response.Content);
             throw ex;
