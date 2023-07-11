@@ -8,6 +8,6 @@ namespace SmartWaiver.Net.Interfaces
 
         TemplateResponse GetTemplate(string templateId);
 
-        PrefillResponse Prefill(string templateId, PrefillRequest prefill);
+        PrefillResponse Prefill(string templateId, PrefillRequest prefillRequest);
     }
 }

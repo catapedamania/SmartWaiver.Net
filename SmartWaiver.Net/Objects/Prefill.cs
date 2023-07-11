@@ -2,8 +2,11 @@
 {
     public class Prefill
     {
+        /// <summary>
+        /// Waiver template information
+        /// </summary>
         public Prefill() { }
-        
+
         /// <summary>
         /// Unique ID of prefilled waiver template
         /// </summary>
@@ -12,8 +15,7 @@
         /// <summary>
         /// Expiration time of waiver
         /// </summary>
-        public string Expiration { get; set; }
-        
+        public int Expiration { get; set; }
         /// <summary>
         /// Direct link to prefilled waiver template
         /// </summary>

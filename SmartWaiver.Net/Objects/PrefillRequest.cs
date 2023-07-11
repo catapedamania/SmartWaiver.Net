@@ -21,7 +21,7 @@ namespace SmartWaiver.Net.Objects
         /// <summary>
         /// Whether the waiver has only an adult or also a child
         /// </summary>
-        [JsonProperty(PropertyName = "adult")] 
+        [JsonProperty(PropertyName = "adult")]
         public bool? Adult { get; set; }
 
         /// <summary>
@@ -39,13 +39,13 @@ namespace SmartWaiver.Net.Objects
         /// <summary>
         /// 
         /// </summary>
-        [JsonProperty(PropertyName = "guardian")] 
+        [JsonProperty(PropertyName = "guardian")]
         public Guardian Guardian { get; set; }
         
         /// <summary>
         /// Address waiver question Line One
         /// </summary>
-        [JsonProperty(PropertyName = "addressLineOne")] 
+        [JsonProperty(PropertyName = "addressLineOne")]
         public string AddressLineOne { get; set; }
         
         /// <summary>
@@ -63,67 +63,68 @@ namespace SmartWaiver.Net.Objects
         /// <summary>
         /// Address waiver question country
         /// </summary>
-        [JsonProperty(PropertyName = "addressCountry")] 
+        [JsonProperty(PropertyName = "addressCountry")]
         public string AddressCountry { get; set; }
         
         /// <summary>
         /// Address waiver question state
         /// </summary>
-        [JsonProperty(PropertyName = "addressState")] 
+        [JsonProperty(PropertyName = "addressState")]
         public string AddressState { get; set; }
         
         /// <summary>
         /// Address waiver question zip code
         /// </summary>
-        [JsonProperty(PropertyName = "addressZip")] 
+        [JsonProperty(PropertyName = "addressZip")]
         public string AddressZip { get; set; }
         
         /// <summary>
         /// Email waiver question
         /// </summary>
-        [JsonProperty(PropertyName = "email")] 
+        [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
         
         /// <summary>
         /// Emergency waiver question name
         /// </summary>
-        [JsonProperty(PropertyName = "emergencyContactName")] 
+        [JsonProperty(PropertyName = "emergencyContactName")]
         public string EmergencyContactName { get; set; }
         
         /// <summary>
         /// Emergency waiver question phone
         /// </summary>
-        [JsonProperty(PropertyName = "emergencyContactPhone")] 
+        [JsonProperty(PropertyName = "emergencyContactPhone")]
         public string EmergencyContactPhone { get; set; }
         
         /// <summary>
         /// Insurance carrier
         /// </summary>
-        [JsonProperty(PropertyName = "insuranceCarrier")] 
+        [JsonProperty(PropertyName = "insuranceCarrier")]
         public string InsuranceCarrier { get; set; }
         
         /// <summary>
         /// Policy number
         /// </summary>
-        [JsonProperty(PropertyName = "insurancePolicyNumber")] 
+        [JsonProperty(PropertyName = "insurancePolicyNumber")]
         public string InsurancePolicyNumber { get; set; }
         
         /// <summary>
         /// Drivers License State
         /// </summary>
-        [JsonProperty(PropertyName = "driversLicenseState")] 
+        [JsonProperty(PropertyName = "driversLicenseState")]
         public string DriversLicenseState { get; set; }
         
         /// <summary>
         /// Drivers License Number
         /// </summary>
-        [JsonProperty(PropertyName = "driversLicenseNumber")] 
+        [JsonProperty(PropertyName = "driversLicenseNumber")]
         public string DriversLicenseNumber { get; set; }
         
         /// <summary>
         /// Custom waiver fields on the waiver
         /// </summary>
-        [JsonProperty(PropertyName = "customWaiverFields")] 
-        public Dictionary<string,string> CustomWaiverFields { get; set; }
+        [JsonProperty(PropertyName = "customWaiverFields")]
+        public Dictionary<string, string> CustomWaiverFields { get; set; }
+
     }
 }

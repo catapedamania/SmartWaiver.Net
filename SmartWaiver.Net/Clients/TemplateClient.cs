@@ -49,22 +49,25 @@ namespace SmartWaiver.Net.Clients
             throw ex;
         }
 
-        public PrefillResponse Prefill(string templateId, PrefillRequest prefill)
+        public PrefillResponse Prefill(string templateId, PrefillRequest body)
         {
-            var request = new RestRequest("v4/templates/{templateId}/prefill");
+            var request = new RestRequest("v4/templates/{templateId}/prefill", Method.Post);
             request.AddUrlSegment("templateId", templateId);
-            request.AddJsonBody(
+
+            request.AddJsonBody
+            (
                 JsonConvert.SerializeObject
                 (
-                    prefill,
+                    body, 
                     new JsonSerializerSettings
                     {
                         NullValueHandling = NullValueHandling.Ignore,
                         DateFormatString = "yyyy-MM-dd"
                     }
-                ));
+                )
+            );
 
-            var response = _client.ExecutePostAsync<PrefillResponse>(request).Result;
+            var response = _client.ExecuteAsync<PrefillResponse>(request).Result;
 
             if (response.IsSuccessful)
             {
